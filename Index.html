@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Instituto Nelson Mandela</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        header {
+            background-color: #004aad;
+            color: white;
+
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 60px;
+
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: url('1.jpg') no-repeat center center;
+                   background-size: cover;
+                    height: 300px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 36px;
+                    font-weight: bold;
+                    text-shadow: 2px 2px 6px black;
+            }
+
+            .cursos {
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .cursos h2 {
+                color: #004aad;
+                margin-bottom: 30px;
+            }
+
+            .cards {
+                display: flex;
+
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .card {
+                background: white;
+                width: 300px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                transition: transform 0.3s;
+            }
+
+            .card:hover {
+                transform: scale(1.05);
+
+            }
+
+            .card img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+            }
+
+            .card .content {
+                padding: 20px;
+                text-align: left;
+            }
+
+            .card h3 {
+                margin: 0 0 10px;
+                color: #008000;
+            }
+
+            .card p {
+                font-size: 14px;
+                color: #333;
+            }
+
+            footer {
+                background-color:#004aad;
+                color: white;
+                text-align: center;
+                padding: 15px;
+                margin-top: 40px;
+            }
+
+            /* Formulário */
+            #formulario {
+
+                display: none;
+                padding: 20px;
+                background: white;
+                max-width: 400px;
+                margin: 20px auto;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+                border-radius: 10px;
+            }
+
+            #formulario input, #formulario select {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+            }
+
+            #enviar {
+                background-color: #004aad;
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            #enviar.enviado {
+
+                background-color: green;
+                color: white;
+            }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="nelson_1.jpeg" alt="Logo Instituto Nelson Mandela">
+      <nav>
+    <a onclick="abrirFormulario()"><i class="fas fa-edit"></i> Inscrição</a>
+    <a href="Login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+    <a href="#cursos"><i class="fas fa-book-open"></i> Cursos</a>
+    <a href="pix.html"><i class="fas fa-qrcode"></i> Pix</a>
+</nav>
+    </header>
+
+
+    <section class="hero">Nossos Cursos</section>
+
+    <section class="cursos">
+        <h2>Conheça os nossos cursos</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="Competição de Programação.jpg" alt="Administração">
+                <div class="content">
+                    <h3>Administração</h3>
+                    <p>Formação completa para quem deseja atuar
+
+                        no mercado corporativo e empreendedor.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Enfermagem.jpg" alt="Enfermagem">
+                <div class="content">
+                    <h3>Enfermagem</h3>
+
+                    <p>Curso voltado para o cuidado com a saúde e o bem-estar da sociedade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="formulario">
+        <h2>Formulário de Inscrição</h2>
+        <input type="text" id="nome" placeholder="Nome completo" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="tel" id="telefone" placeholder="Telefone" required>
+        <select id="curso">
+
+            <option value="">Selecione o curso</option>
+            <option>Administração</option>
+            <option>Enfermagem</option>
+        </select>
+
+        <select id="genero">
+            <option value="">Gênero</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Outro</option>
+        </select>
+        <input type="date" id="data" required>
+        <button id="enviar" onclick="enviarFormulario()">Enviar</button>
+    </div>
+
+    <footer>
+        &copy; 2025 Instituto Nelson Mandela. Todos os direitos reservados.
+    </footer>
+
+
+    <script>
+        function abrirFormulario() {
+            document.getElementById('formulario').style.display = 'block';
+
+
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        function enviarFormulario() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const curso = document.getElementById('curso').value;
+            const genero = document.getElementById('genero').value;
+            const data = document.getElementById('data').value;
+
+            const conteudo = `FICHA DE INSCRIÇÃO
+             Nome: ${nome}
+             Email: ${email}
+             Telefone: ${telefone}
+             Curso: ${curso}
+            Gênero: ${genero}
+            Data de Nascimento: ${data}
+`;
+
+            const blob = new Blob([conteudo], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Ficha_de_Inscricao.txt';
+            link.click();
+
+            const botao = document.getElementById('enviar');
+            botao.textContent = "Enviado com Sucesso!";
+            botao.classList.add('enviado');
+        }
+
+    </script>
+
+</body>
+
+</html>
